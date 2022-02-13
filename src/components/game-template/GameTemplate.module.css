@@ -1,14 +1,40 @@
+/* @media (max-width: 768px) {
+
+    .gameTemplateComponentWrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+    }
+
+    .gameTempalteWrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        height: 200px;
+    }
+
+    .headerWrapper {
+        max-width: 768px;
+        background-color: aquamarine;
+    }
+
+
+
+} */
+
 .gameTemplateComponentWrapper {
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-columns: repeat(4,1fr);
+  
 }
 
 .gameTempalteWrapper  {
     display: flex;
     flex-direction: column;
     max-width: 250px;
-    height: 300px;
+    height: 250px;
     padding: 25.5px;
     margin: 30px;
     border-radius: 15%;

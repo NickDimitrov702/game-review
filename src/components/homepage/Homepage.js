@@ -6,7 +6,6 @@ function Homepage() {
     return (
         <div className={style.homePageWrapper}>
             <GameTemplate />
-            <p>This is Homepage Content</p>
         </div>
     )
 }
