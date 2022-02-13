@@ -1,0 +1,18 @@
+.gameTemplateComponentWrapper {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.gameTempalteWrapper  {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    height: 300px;
+    padding: 25.5px;
+    margin: 30px;
+    border-radius: 15%;
+    border: 3px solid gray;
+    align-items: center;
+ 
+}
