@@ -4,7 +4,8 @@ import Header from './components/header/Header.js';
 import Homepage from './components/homepage/Homepage.js';
 import Footer from './components/footer/Footer.js';
 import About from './components/about/About.js'
-
+import LogIn from './components/log-in/LogIn.js'
+import SignUp from './components/sign-up/SignUp.js'
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
       <Switch>
         <Route path='/' exact component={Homepage} />
         <Route path='/about' component={About} />
+        <Route path='/log-in' component={LogIn} />
+        <Route path='/sign-up' component={SignUp} />
       </Switch>
       <Footer />
     </Router>

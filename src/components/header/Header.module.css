@@ -4,7 +4,7 @@
 .headerWrapper {
     width: 100%;
     height: 150px;
-    background-color: rgba(40, 59, 87, 0.459);
+    background-color: rgba(59, 60, 61, 0.986);
     display: flex;
     align-items: center;
 }
@@ -17,6 +17,7 @@
     font-weight: 600;
     font-size: 28px;
     color: white;
+    text-decoration: none;
 }
 
 .navBarWrapper {
@@ -39,6 +40,7 @@
     text-decoration: none;
     color: white;
     padding-bottom: 10px;
+    
 }
 
 .navBarListItems a:hover {
@@ -51,7 +53,7 @@
     
     .headerWrapper {
         max-width: 768px;
-        height: 100px;
+        max-height: 200px;
         
     }
 
@@ -64,7 +66,7 @@
         left: 250px;
         margin-left: 50px;
         width: 50px;
-        height: 50px;
+        height: 40px;
         border-radius: 5px 5px 5px 5px;
         border-top: 5px solid black;
         border-left: none;
@@ -74,7 +76,7 @@
 
     .burgerLine {
         border-radius: 15px 15px;
-        margin-top: 45%;
+        margin-top: 37.5%;
         border-top: 5px solid black;
     }
 
@@ -88,7 +90,7 @@
         display: flex;
         flex-direction: column;
         max-width: 400px;
-        background-color: green;
+        background-color: rgb(59, 60, 61);
         z-index: 2;
     }
 
@@ -97,6 +99,7 @@
     }
 
     .navBarListItems a {
-        color: blue;
+        color: rgb(222, 222, 236);
+        font-weight: bold;
     }
 }

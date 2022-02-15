@@ -24,15 +24,16 @@
     .gameTemplateComponentWrapper {
         display: flex;
         flex-direction: column;
-        max-width: 300px;
-        margin: auto;
+        width: 100%;
+        
     }
 
     .gameTempalteWrapper {
         display: flex;
-        width: 300px;
-        height: 250px;
+        min-width: 340px;
+        height: 270px;
         margin: 30px auto;
+        margin: 10px auto 10px auto;
     }
 
 }

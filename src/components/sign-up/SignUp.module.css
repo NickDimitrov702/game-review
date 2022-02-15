@@ -1,0 +1,45 @@
+
+
+
+.signUpFormWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 345px;
+    margin: auto;
+    align-items: center;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    padding: 35px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: aquamarine;
+}
+
+.emailInputWrapper {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px 30px 0px;
+}
+
+.passwordInputWrapper {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lable {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 45.5px;
+}
+
+.input {
+    text-decoration: none;
+    border: none;
+    background-color: grey;
+    height: 35px;
+    border-radius: 12px;
+}
