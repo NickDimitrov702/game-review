@@ -1,33 +1,9 @@
-/* @media (max-width: 768px) {
-
-    .gameTemplateComponentWrapper {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        
-    }
-
-    .gameTempalteWrapper {
-        display: flex;
-        flex-direction: column;
-        max-width: 500px;
-        height: 200px;
-    }
-
-    .headerWrapper {
-        max-width: 768px;
-        background-color: aquamarine;
-    }
-
-
-
-} */
 
 .gameTemplateComponentWrapper {
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-columns: repeat(4,1fr);
-  
+    
 }
 
 .gameTempalteWrapper  {
@@ -40,5 +16,23 @@
     border-radius: 15%;
     border: 3px solid gray;
     align-items: center;
- 
+    
+}
+
+@media all and (max-width: 768px) {
+
+    .gameTemplateComponentWrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    .gameTempalteWrapper {
+        display: flex;
+        width: 300px;
+        height: 250px;
+        margin: 30px auto;
+    }
+
 }

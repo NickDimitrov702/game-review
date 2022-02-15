@@ -1,11 +1,13 @@
-/* @media (max-width: 768px) {
-    .homePageWrapper {
-        width: 768px;
-        margin: auto;
-    }
-} */
 
 .homePageWrapper {
     max-width: 1400px;
     margin: auto;
+}
+
+@media (width: 768px) {
+    .homePageWrapper {
+        max-width: 768px;
+        height: auto;
+        margin: auto;
+    }
 }
