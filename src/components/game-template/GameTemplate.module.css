@@ -2,7 +2,7 @@
 .gameTemplateComponentWrapper {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     
 }
 

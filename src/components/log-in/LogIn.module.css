@@ -1,3 +1,7 @@
+.formWrapper {
+     height: 100%;
+}
+
 
 .loginFormWrapper {
     display: flex;

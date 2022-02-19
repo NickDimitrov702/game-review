@@ -1,0 +1,42 @@
+import React, { useContext, useState, useEffect } from "react"
+import { auth } from "../components/services/firebase/firebase"
+// Setting the context from react
+const AuthContext = React.createContext()
+
+// We have access to Context through useAuth Hook.
+export function useAuth() {
+    return useContext(AuthContext)
+}
+
+// Using the authProvider so we can render the Context
+export function AuthProvider({ children }) {
+    // Using state to set the current user, by default there wont be any user
+    const [currentUser, setCurrentUser] = useState()
+    // This is the function that will sign-up the user, using firebase auth methods.
+    function signup(email, password) {
+        return auth.createUserWithEmailAndPassword(email, password)
+    }
+
+    useEffect(() => {
+        // onAuthStChange returns a unsubscribe method that will automatically unsubscribe from the listener, that is why it 
+        // is set a const unsubscribe. 
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            setCurrentUser(user)
+        })
+
+        return unsubscribe
+    }, [])
+
+
+    // we are storing value and this value will be dropped to AuthContext
+    // the main reason is to store the currentUser
+    const value = {
+        currentUser,
+        signup
+    }
+
+    return <AuthContext.Provider value={ value }>
+        {children}
+    </AuthContext.Provider>
+
+}

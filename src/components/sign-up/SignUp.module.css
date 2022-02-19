@@ -1,5 +1,7 @@
 
-
+.formWrapper {
+    height: 100%;
+}
 
 .signUpFormWrapper {
     display: flex;

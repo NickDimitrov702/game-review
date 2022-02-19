@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer.js';
 import About from './components/about/About.js'
 import LogIn from './components/log-in/LogIn.js'
 import SignUp from './components/sign-up/SignUp.js'
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
 
@@ -17,8 +18,11 @@ function App() {
       <Switch>
         <Route path='/' exact component={Homepage} />
         <Route path='/about' component={About} />
-        <Route path='/log-in' component={LogIn} />
-        <Route path='/sign-up' component={SignUp} />
+          <Route path='/log-in' component={LogIn} />
+        <AuthProvider>
+          <Route path='/sign-up' component={SignUp} />
+        </AuthProvider>
+
       </Switch>
       <Footer />
     </Router>
