@@ -18,8 +18,12 @@ export function AuthProvider({ children }) {
         // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
     }
 
-    function signin(email, password) {
+    function login(email, password) {
         return auth.signInWithEmailAndPassword(email, password)
+    }
+
+    function logout() {
+        return auth.signOut()
     }
 
     useEffect(() => {
@@ -37,7 +41,9 @@ export function AuthProvider({ children }) {
     // the main reason is to store the currentUser
     const value = {
         currentUser,
-        signup
+        signup,
+        login,
+        logout
     }
 
     return <AuthContext.Provider value={value}>

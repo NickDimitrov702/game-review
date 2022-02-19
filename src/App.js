@@ -14,8 +14,8 @@ function App() {
 
   return (
     <Router>
-      <Header />
       <AuthProvider>
+      <Header />
         <Switch>
           <Route path='/' exact component={Homepage} />
           <Route path='/about' component={About} />

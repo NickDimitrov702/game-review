@@ -1,7 +1,8 @@
 import style from './SignUp.module.css'
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { AuthProvider, useAuth } from '../../context/AuthContext.js'
+
 
 function SignUp() {
     const emailRef = useRef()
@@ -10,6 +11,7 @@ function SignUp() {
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
     // Async function since we have try catch, that is using async event within the Singup
     async function handleSubmit(e) {
         e.preventDefault()
@@ -24,6 +26,7 @@ function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            history.push('/')
             // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
         } catch {
             setError('Failed to create an account')
