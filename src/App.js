@@ -7,6 +7,8 @@ import About from './components/about/About.js'
 import LogIn from './components/log-in/LogIn.js'
 import SignUp from './components/sign-up/SignUp.js'
 import { AuthProvider } from './context/AuthContext';
+import PrivateRout from './components/privateRout/PrivateRout';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
 
@@ -17,7 +19,8 @@ function App() {
       <AuthProvider>
       <Header />
         <Switch>
-          <Route path='/' exact component={Homepage} />
+          <PrivateRout path='/dashboard' component={Dashboard} />
+          <Route exact path='/' component={Homepage} />
           <Route path='/about' component={About} />
           <Route path='/log-in' component={LogIn} />
           <Route path='/sign-up' component={SignUp} />

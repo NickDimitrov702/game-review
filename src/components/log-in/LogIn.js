@@ -21,6 +21,7 @@ function LogIn() {
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
             history.push('/')
+            
             // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
         } catch {
             setError('Failed to create an account')
