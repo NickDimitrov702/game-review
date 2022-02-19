@@ -15,6 +15,7 @@ export function AuthProvider({ children }) {
     // This is the function that will sign-up the user, using firebase auth methods.
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
+        // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
     }
 
     useEffect(() => {
