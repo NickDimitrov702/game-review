@@ -18,6 +18,10 @@ export function AuthProvider({ children }) {
         // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
     }
 
+    function signin(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
+    }
+
     useEffect(() => {
         // onAuthStChange returns a unsubscribe method that will automatically unsubscribe from the listener, that is why it 
         // is set a const unsubscribe. 
@@ -36,7 +40,7 @@ export function AuthProvider({ children }) {
         signup
     }
 
-    return <AuthContext.Provider value={ value }>
+    return <AuthContext.Provider value={value}>
         {children}
     </AuthContext.Provider>
 

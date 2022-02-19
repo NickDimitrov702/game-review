@@ -5,7 +5,7 @@ import style from './Header.module.css'
 
 function Header() {
     return (
-        <AuthProvider>
+    
             <div className={style.headerWrapper}>
                 <span className={style.logo}><Link className={style.logo} to='/'>RAWG game-reviews</Link></span>
                 <div className={style.burger}>
@@ -18,7 +18,7 @@ function Header() {
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/sign-up'>Sign up</Link></li>
                 </ul>
             </div>
-        </AuthProvider>
+       
 
     )
 

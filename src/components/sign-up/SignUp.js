@@ -1,12 +1,13 @@
 import style from './SignUp.module.css'
 import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AuthProvider, useAuth } from '../../context/AuthContext.js'
 
 function SignUp() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup, currentUser } = useAuth()
+    const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     // Async function since we have try catch, that is using async event within the Singup
@@ -33,10 +34,8 @@ function SignUp() {
 
 
     return (
-        <AuthProvider>
+
             <div className={style.formWrapper}>
-                {/* {error && alert("ALERT")} */}
-                {JSON.stringify(currentUser)}
                 <form className={style.signUpFormWrapper} onSubmit={handleSubmit}>
 
                     <label className={style.emailInputWrapper}>Enter email
@@ -53,12 +52,12 @@ function SignUp() {
                         <input ref={passwordConfirmRef} className={style.input} type="password"></input>
                     </label>
                     <input type="submit" value="Submit" />
-
+                    <span><Link to='/log-in'>Already have an account ?</Link></span>
                     {/* Wont be able to re-submit our form since we are using the loading state, disabled={loading} the btn will be disabled */}
                 </form>
             </div>
 
-        </AuthProvider>
+
 
 
     )

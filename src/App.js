@@ -15,15 +15,14 @@ function App() {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path='/' exact component={Homepage} />
-        <Route path='/about' component={About} />
+      <AuthProvider>
+        <Switch>
+          <Route path='/' exact component={Homepage} />
+          <Route path='/about' component={About} />
           <Route path='/log-in' component={LogIn} />
-        <AuthProvider>
           <Route path='/sign-up' component={SignUp} />
-        </AuthProvider>
-
-      </Switch>
+        </Switch>
+      </AuthProvider>
       <Footer />
     </Router>
 
