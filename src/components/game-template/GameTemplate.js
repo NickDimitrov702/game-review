@@ -1,6 +1,11 @@
 import style from './GameTemplate.module.css'
-
+import getData from '../../API-services/API-fetch/apiFetch.js'
 function GameTempalte() {
+    let data = []
+
+    data.push(getData())
+    console.log(getData)
+
     return (
         <div className={style.gameTemplateComponentWrapper}>
             <div className={style.gameTempalteWrapper}>
