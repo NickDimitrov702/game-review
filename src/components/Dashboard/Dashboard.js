@@ -6,13 +6,19 @@ import { useAuth } from '../../context/AuthContext.js'
 
 function Dashboard() {
     const { login, currentUser } = useAuth()
-    return (
 
-        <div >
-            ]<h1>THIS IS DASHBOARD</h1>
-            {/* {JSON.stringify(currentUser)}
-            <GameTemplate /> */}
+    return (
+        <div>
+            {currentUser &&
+                <div>
+                    <h1>{currentUser.email}</h1>
+                    <h1>THIS IS DASHBOARD</h1>
+                </div>
+                }
         </div>
+
+
+
 
 
     )

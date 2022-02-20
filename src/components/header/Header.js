@@ -14,7 +14,7 @@ function Header() {
     const { history } = useHistory()
 
     async function handleLogOut() {
-        console.log('logout')
+        
         setError('')
 
         try {
@@ -36,6 +36,7 @@ function Header() {
                 <ul className={style.navBarWrapper}>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/'>Home</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/about'>About</Link></li>
+                    <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Dashboard</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/log-in' onClick={handleLogOut}>Log Out</Link></li>
                 </ul>
             }

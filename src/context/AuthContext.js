@@ -12,6 +12,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     // Using state to set the current user, by default there wont be any user
     const [currentUser, setCurrentUser] = useState()
+    const [loading, setLoading] = useState(true)
     // This is the function that will sign-up the user, using firebase auth methods.
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
@@ -31,6 +32,7 @@ export function AuthProvider({ children }) {
         // is set a const unsubscribe. 
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
+            setLoading(false)
         })
 
         return unsubscribe
@@ -47,7 +49,7 @@ export function AuthProvider({ children }) {
     }
 
     return <AuthContext.Provider value={value}>
-        {children}
+        {!loading && children}
     </AuthContext.Provider>
 
 }

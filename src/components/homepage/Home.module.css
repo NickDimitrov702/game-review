@@ -1,6 +1,7 @@
 
 .homePageWrapper {
     max-width: 1400px;
+    min-height: 100%;
     margin: auto;
 }
 

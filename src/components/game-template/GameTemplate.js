@@ -22,47 +22,93 @@ function GameTempalte() {
                 </footer>
             </div>
             <div className={style.gameTempalteWrapper}>
-                <header>
-                    <h1>Game Name</h1>
+                <header className={style.gameTemplateHeader}>
+                    <h1>Game image Slide show</h1>
+                    <img />
                 </header>
                 <main>
+                    <header className={style.mainHeader}>
+                        <p>Icon for OS</p>
+                        <h2>Game Name</h2>
+                    </header>
                     <p>Main Content for the game </p>
                 </main>
                 <footer>
-                    <p>Footer for the game template</p>
+                    <button>Add</button>
+                    <button>Wishlist</button>
+                    <button>Reviews</button>
                 </footer>
             </div>
             <div className={style.gameTempalteWrapper}>
-                <header>
-                    <h1>Game Name</h1>
+                <header className={style.gameTemplateHeader}>
+                    <h1>Game image Slide show</h1>
+                    <img />
                 </header>
                 <main>
+                    <header className={style.mainHeader}>
+                        <p>Icon for OS</p>
+                        <h2>Game Name</h2>
+                    </header>
                     <p>Main Content for the game </p>
                 </main>
                 <footer>
-                    <p>Footer for the game template</p>
+                    <button>Add</button>
+                    <button>Wishlist</button>
+                    <button>Reviews</button>
                 </footer>
             </div>
             <div className={style.gameTempalteWrapper}>
-                <header>
-                    <h1>Game Name</h1>
+                <header className={style.gameTemplateHeader}>
+                    <h1>Game image Slide show</h1>
+                    <img />
                 </header>
                 <main>
+                    <header className={style.mainHeader}>
+                        <p>Icon for OS</p>
+                        <h2>Game Name</h2>
+                    </header>
                     <p>Main Content for the game </p>
                 </main>
                 <footer>
-                    <p>Footer for the game template</p>
+                    <button>Add</button>
+                    <button>Wishlist</button>
+                    <button>Reviews</button>
                 </footer>
             </div>
             <div className={style.gameTempalteWrapper}>
-                <header>
-                    <h1>Game Name</h1>
+                <header className={style.gameTemplateHeader}>
+                    <h1>Game image Slide show</h1>
+                    <img />
                 </header>
                 <main>
+                    <header className={style.mainHeader}>
+                        <p>Icon for OS</p>
+                        <h2>Game Name</h2>
+                    </header>
                     <p>Main Content for the game </p>
                 </main>
                 <footer>
-                    <p>Footer for the game template</p>
+                    <button>Add</button>
+                    <button>Wishlist</button>
+                    <button>Reviews</button>
+                </footer>
+            </div>
+            <div className={style.gameTempalteWrapper}>
+                <header className={style.gameTemplateHeader}>
+                    <h1>Game image Slide show</h1>
+                    <img />
+                </header>
+                <main>
+                    <header className={style.mainHeader}>
+                        <p>Icon for OS</p>
+                        <h2>Game Name</h2>
+                    </header>
+                    <p>Main Content for the game </p>
+                </main>
+                <footer>
+                    <button>Add</button>
+                    <button>Wishlist</button>
+                    <button>Reviews</button>
                 </footer>
             </div>
         </div>

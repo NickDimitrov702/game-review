@@ -15,7 +15,7 @@ function SignUp() {
     // Async function since we have try catch, that is using async event within the Singup
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(emailRef.current.value)
+        
         // Validations for passwrods
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError('Passwords do not match')
@@ -26,7 +26,7 @@ function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            history.push('/dashboard')
             // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
         } catch {
             setError('Failed to create an account')

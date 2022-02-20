@@ -17,10 +17,10 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-      <Header />
+        <Header />
         <Switch>
-          <PrivateRout path='/dashboard' component={Dashboard} />
-          <Route exact path='/' component={Homepage} />
+          <PrivateRout exact path='/' component={Homepage} />
+          <Route path='/dashboard' component={Dashboard} />
           <Route path='/about' component={About} />
           <Route path='/log-in' component={LogIn} />
           <Route path='/sign-up' component={SignUp} />

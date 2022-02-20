@@ -9,7 +9,6 @@ function Homepage() {
     return (
 
         <div className={style.homePageWrapper}>
-            {JSON.stringify(currentUser)}
             <GameTemplate />
         </div>
 

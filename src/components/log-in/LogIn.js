@@ -13,7 +13,7 @@ function LogIn() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(currentUser)
+        
 
         try {
             // re-setting the Error
@@ -32,7 +32,6 @@ function LogIn() {
 
     return (
         <div className={style.formWrapper}>
-            {JSON.stringify(currentUser)}
             <form className={style.loginFormWrapper} onSubmit={handleSubmit}>
                 <div className={style.emailInputWrapper}>
                     <label className={style.lable}>Enter email</label>
