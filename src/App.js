@@ -9,6 +9,7 @@ import SignUp from './components/sign-up/SignUp.js'
 import { AuthProvider } from './context/AuthContext';
 import PrivateRout from './components/privateRout/PrivateRout';
 import Dashboard from './components/Dashboard/Dashboard';
+import PublicRout from './components/publicRout/PublicRouter';
 
 function App() {
 
@@ -19,8 +20,8 @@ function App() {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRout exact path='/' component={Homepage} />
-          <Route path='/dashboard' component={Dashboard} />
+          <PublicRout restricted={false} exact path='/' component={Homepage} />
+          <PrivateRout exact path='/dashboard' component={Dashboard} />
           <Route path='/about' component={About} />
           <Route path='/log-in' component={LogIn} />
           <Route path='/sign-up' component={SignUp} />
