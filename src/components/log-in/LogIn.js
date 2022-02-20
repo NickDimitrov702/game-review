@@ -41,7 +41,7 @@ function LogIn() {
                     <label className={style.lable}>Enter password</label>
                     <input ref={passwordRef} className={style.input} type="password"></input>
                 </div>
-                <input type='submit' value='Log in'/>
+                <input className={style.submitBtn} type='submit' value='Log in'/>
                 <span><Link to='/sign-up'>Sign Up</Link></span>
             </form>
         </div>
