@@ -1,121 +1,47 @@
 import style from './GameTemplate.module.css'
 import getData from '../../API-services/API-fetch/apiFetch.js'
-function GameTempalte() {
-    let data = []
+import React, { Fragment, useEffect, useState } from 'react';
+import Populate from '../PopulatingComponent/Populator.js'
+import PLayStationComp from '../game-template/PlayStation/PlayStationTemplate.js'
+import XboxTemplate from '../game-template/Xbox/XboxTemplate.js';
 
-    data.push(getData())
-    console.log(getData)
+
+function GameTempalte({
+    id,
+    name,
+    games
+}) {
+
+    let [gamesData, setGames] = useState([])
+
+    useEffect(() => {
+        games.map(x => {
+            setGames(x)
+        })
+
+
+    }, [games])
+
+    console.log(id)
 
     return (
         <div className={style.gameTemplateComponentWrapper}>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
-            <div className={style.gameTempalteWrapper}>
-                <header className={style.gameTemplateHeader}>
-                    <h1>Game image Slide show</h1>
-                    <img />
-                </header>
-                <main>
-                    <header className={style.mainHeader}>
-                        <p>Icon for OS</p>
-                        <h2>Game Name</h2>
-                    </header>
-                    <p>Main Content for the game </p>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
-                </footer>
-            </div>
+            {id === 4 && <div>
+                {games.map(x =>
+                    <Populate id={x.id} name={x.name} {...x} />)
+                }
+            </div>}
+            {id === 187 && <div>
+                {games.map(x =>
+                    <PLayStationComp id={x.id} name={x.name} {...x} />)
+                }
+            </div>}
+
+            {id === 1 && <div>
+                {games.map(x =>
+                    <XboxTemplate id={x.id} name={x.name} {...x} />)
+                }
+            </div>}
         </div>
 
 

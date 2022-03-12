@@ -5,6 +5,7 @@ export default function getData(){
 
     return fetch(url)
         .then(res => res.json())
+        .then(res => res.results)
         
 
 }

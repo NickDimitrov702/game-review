@@ -3,6 +3,9 @@
     max-width: 1400px;
     min-height: 100%;
     margin: auto;
+    display: grid;
+    align-self:center ;
+    grid-template-columns: auto auto auto;
 }
 
 @media (width: 768px) {
