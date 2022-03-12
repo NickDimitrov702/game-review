@@ -9,7 +9,8 @@ import XboxTemplate from '../game-template/Xbox/XboxTemplate.js';
 function GameTempalte({
     id,
     name,
-    games
+    games,
+    image_background,
 }) {
 
     let [gamesData, setGames] = useState([])
@@ -22,24 +23,48 @@ function GameTempalte({
 
     }, [games])
 
-    console.log(id)
-
     return (
         <div className={style.gameTemplateComponentWrapper}>
+            
             {id === 4 && <div>
                 {games.map(x =>
-                    <Populate id={x.id} name={x.name} {...x} />)
+                    <Populate id={x.id} name={x.name} {...x} image={image_background} os={name} />)
                 }
-            </div>}
+            </div>} 
             {id === 187 && <div>
                 {games.map(x =>
-                    <PLayStationComp id={x.id} name={x.name} {...x} />)
+                    <Populate id={x.id} name={x.name} {...x} os={name} />)
                 }
             </div>}
 
+            {id === 18 && <div>
+                {games.map(x =>
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
+                }
+            </div>}
+            {id === 186 && <div>
+                {games.map(x =>
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
+                }
+            </div>}
+            {id === 7 && <div>
+                {games.map(x =>
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
+                }
+            </div>}
+            {id === 14 && <div>
+                {games.map(x =>
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
+                }
+            </div>}
+            {id === 80 && <div>
+                {games.map(x =>
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
+                }
+            </div>}
             {id === 1 && <div>
                 {games.map(x =>
-                    <XboxTemplate id={x.id} name={x.name} {...x} />)
+                   <Populate id={x.id} name={x.name} {...x} os={name} />)
                 }
             </div>}
         </div>

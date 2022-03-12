@@ -15,18 +15,16 @@ function Homepage() {
         getData()
             .then(res => setData(res))
             .catch(error => console.log(error))
-   
+
     }, [])
 
-    
+
     console.log(data)
     return (
         <div className={style.homePageWrapper}>
-            {data.map(x => 
-                
+            {data.map(x =>
                 <GameTemplate key={x.id} name={x.name} {...x} />)
-                }
-
+            }
             <h2>HOme page </h2>
             <p></p>
         </div>

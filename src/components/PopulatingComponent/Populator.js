@@ -5,15 +5,19 @@ import style from './Populate.module.css'
 function Populate({
     name,
     id,
-    slug
+    slug,
+    image,
+    os
 }) {
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
+            
             <div className={style.gameTempalteWrapper} >
+            {/* <img className={style.img} src={image}/> */}
                 <header>
                     <h1>Game image Slide show</h1>
-                    <img />
+                  
                 </header>
                 <main >
                     <p>Main Content for the game </p>
@@ -21,7 +25,7 @@ function Populate({
                         {name}
                     </div>
                     <div>
-                        <p>PC</p>
+                        <p>{os}</p>
                     </div>
                 </main>
                 <footer>

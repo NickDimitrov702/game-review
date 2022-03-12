@@ -3,7 +3,7 @@
     /* display: grid;
     align-self:center ;
     grid-template-columns: auto auto auto; */
-
+    
 }
 
 .gameTemplateHeader {
@@ -12,7 +12,6 @@
 }
 
 .gameTempalteWrapper  {
-
     display: flex;
     flex-direction: column;
     max-width: 350px;

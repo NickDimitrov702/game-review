@@ -26,6 +26,10 @@
     
 }
 
+.img {
+    width: 300px;
+}
+
 
 @media all and (max-width: 768px) {
 
