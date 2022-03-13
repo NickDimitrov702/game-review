@@ -28,7 +28,7 @@ function GameTempalte({
             
             {id === 4 && <div>
                 {games.map(x =>
-                    <Populate id={x.id} name={x.name} {...x} image={image_background} os={name} />)
+                    <Populate id={x.id} name={x.name} {...x} os={name} />)
                 }
             </div>} 
             {id === 187 && <div>

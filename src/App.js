@@ -10,7 +10,7 @@ import { AuthProvider } from './context/AuthContext';
 import PrivateRout from './components/privateRout/PrivateRout';
 import Dashboard from './components/Dashboard/Dashboard';
 import PublicRout from './components/publicRout/PublicRouter';
-
+import UsersDAshboard from './components/user/UserDashboard.js'
 function App() {
 
 
@@ -21,7 +21,7 @@ function App() {
         <Header />
         <Switch>
           <PublicRout restricted={false} exact path='/' component={Homepage} />
-          <PrivateRout exact path='/dashboard' component={Dashboard} />
+          <PrivateRout exact path='/dashboard' component={UsersDAshboard} />
           <Route path='/about' component={About} />
           <Route path='/log-in' component={LogIn} />
           <Route path='/sign-up' component={SignUp} />

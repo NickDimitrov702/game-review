@@ -17,7 +17,6 @@ function Populate({
             {/* <img className={style.img} src={image}/> */}
                 <header>
                     <h1>Game image Slide show</h1>
-                  
                 </header>
                 <main >
                     <p>Main Content for the game </p>

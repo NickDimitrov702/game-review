@@ -37,6 +37,7 @@ function Header() {
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/'>Home</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/about'>About</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Dashboard</Link></li>
+                    <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Users Dashboard</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/log-in' onClick={handleLogOut}>Log Out</Link></li>
                 </ul>
             }
