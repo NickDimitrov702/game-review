@@ -8,6 +8,8 @@ export function useAuth() {
     return useContext(AuthContext)
 }
 
+
+
 // Using the authProvider so we can render the Context
 export function AuthProvider({ children }) {
     // Using state to set the current user, by default there wont be any user
