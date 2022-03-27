@@ -28,7 +28,7 @@ function Populate({
 
         setDoc(doc(db, `${currentUser.email}`, "gameTemplate"), {
             name: gameDetails.name,
-            os: [gameDetails.os],
+            os: gameDetails.os,
             country: "USA"
         });
 

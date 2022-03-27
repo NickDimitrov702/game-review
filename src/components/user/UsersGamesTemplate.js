@@ -1,7 +1,8 @@
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../services/firebase/firebase'
+import { doc, collection, addDoc, onSnapshot, getDoc } from "firebase/firestore";
+import { db } from '../services/firebase/firebase.js'
 import style from './UserGamesTemplate.module.css'
-
+import { useAuth } from '../../context/AuthContext.js'
+import { useEffect, useState } from "react";
 
 function UserGamesTemplate() {
     // try {
@@ -15,24 +16,44 @@ function UserGamesTemplate() {
     //     console.error("Error adding document: ", e);
     // }
 
+    const { currentUser } = useAuth()
+    const [userGameData, setGameData] = useState([])
+
+
+
+    useEffect(() => {
+        getDoc(doc(db, `${currentUser.email}`, 'gameTemplate')).then(docSnap => {
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setGameData(docSnap.data())
+            } else {
+                console.log("No such document!");
+            }
+        })
+        // const docSnap = getDoc(docRef);
+
+
+    }, [])
+
+    // console.log(userGameData)
 
 
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
-            
+
             <div className={style.gameTempalteWrapper} >
-            {/* <img className={style.img} src={image}/> */}
+                {/* <img className={style.img} src={image}/> */}
                 <header>
                     <h1>Game image Slide show</h1>
                 </header>
                 <main >
                     <p>Main Content for the game </p>
                     <div>
-                        {}
+                        { }
                     </div>
                     <div>
-                        <p>{}</p>
+                        <p>{userGameData.name}</p>
                     </div>
                 </main>
                 <footer>

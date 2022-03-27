@@ -25,7 +25,7 @@ function UserDashboard() {
                     </div>
                 </div>
             </aside>
-            {}
+            <UserGamesTemplate/>
         </div>
     )
 }
