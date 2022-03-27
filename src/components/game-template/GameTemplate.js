@@ -2,8 +2,7 @@ import style from './GameTemplate.module.css'
 import getData from '../../API-services/API-fetch/apiFetch.js'
 import React, { Fragment, useEffect, useState } from 'react';
 import Populate from '../PopulatingComponent/Populator.js'
-import PLayStationComp from '../game-template/PlayStation/PlayStationTemplate.js'
-import XboxTemplate from '../game-template/Xbox/XboxTemplate.js';
+
 
 
 function GameTempalte({
