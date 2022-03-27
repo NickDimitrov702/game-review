@@ -14,9 +14,10 @@ function Populate({
 }) {
 
     const {currentUser} = useAuth()
-    
-    const addGame = (e) => {
-        console.log('populate')
+    // For add game need to create a Button component so it can be passed to all other components. 
+    // Create event in button component, an event that will take the data from this.component
+    const addGame = (e, data) => {
+        console.log('populate',e.target, data)
         let gameDetails = {}
         let gameName = document.querySelectorAll('.gameName')[0]
         let osName = document.querySelectorAll('.osName')[0]

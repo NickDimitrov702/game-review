@@ -4,7 +4,12 @@ import style from './UserGamesTemplate.module.css'
 import { useAuth } from '../../context/AuthContext.js'
 import { useEffect, useState } from "react";
 
-function UserGamesTemplate() {
+function UserGamesTemplate({
+    name,
+    os,
+    country
+
+}) {
     // try {
     //     const docRef = addDoc(collection(db, "users"), {
     //         first: "Ada",
@@ -16,24 +21,24 @@ function UserGamesTemplate() {
     //     console.error("Error adding document: ", e);
     // }
 
-    const { currentUser } = useAuth()
-    const [userGameData, setGameData] = useState([])
+    // const { currentUser } = useAuth()
+    // const [userGameData, setGameData] = useState([])
 
 
 
-    useEffect(() => {
-        getDoc(doc(db, `${currentUser.email}`, 'gameTemplate')).then(docSnap => {
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-                setGameData(docSnap.data())
-            } else {
-                console.log("No such document!");
-            }
-        })
-        // const docSnap = getDoc(docRef);
+    // useEffect(() => {
+    //     getDoc(doc(db, `${currentUser.email}`, 'gameTemplate')).then(docSnap => {
+    //         if (docSnap.exists()) {
+    //             console.log("Document data:", docSnap.data());
+    //             setGameData(docSnap.data())
+    //         } else {
+    //             console.log("No such document!");
+    //         }
+    //     })
+    //     // const docSnap = getDoc(docRef);
 
 
-    }, [])
+    // }, [])
 
     // console.log(userGameData)
 
@@ -50,10 +55,10 @@ function UserGamesTemplate() {
                 <main >
                     <p>Main Content for the game </p>
                     <div>
-                        { }
+                        {name}
                     </div>
                     <div>
-                        <p>{userGameData.name}</p>
+                        {os}
                     </div>
                 </main>
                 <footer>
