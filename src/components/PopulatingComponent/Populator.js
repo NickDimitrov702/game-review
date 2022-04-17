@@ -1,9 +1,10 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, collection, setDoc, addDoc } from "firebase/firestore";
 import React from "react";
 import { Fragment } from 'react'
 import style from './Populate.module.css'
-import {db} from '../services/firebase/firebase.js'
+import { db } from '../services/firebase/firebase.js'
 import { useAuth } from "../../context/AuthContext";
+import AddButton from "../Button/Button";
 
 function Populate({
     name,
@@ -13,24 +14,27 @@ function Populate({
     os
 }) {
 
-    const {currentUser} = useAuth()
+    const { currentUser } = useAuth()
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
     const addGame = (e, data) => {
-        console.log('populate',e.target, data)
+
+        let targetTemplateData = e.target.parentElement.parentElement.children[1]
+        let gameName = targetTemplateData.children[1]
+        let osName = targetTemplateData.children[2]
         let gameDetails = {}
-        let gameName = document.querySelectorAll('.gameName')[0]
-        let osName = document.querySelectorAll('.osName')[0]
+
+        console.log('populate', e.target, data, e.target.offsetParent, targetTemplateData, gameName, osName)
 
         gameDetails = {
             name: gameName.innerText,
             os: osName.innerText
         }
-
-        setDoc(doc(db, `${currentUser.email}`, "gameTemplate"), {
+        
+        addDoc(collection(db, `${currentUser.email}`), {
             name: gameDetails.name,
             os: gameDetails.os,
-            country: "USA"
+            country: 'US'
         });
 
 
@@ -41,7 +45,6 @@ function Populate({
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
-
             <div className={style.gameTempalteWrapper} >
                 {/* <img className={style.img} src={image}/> */}
                 <header>
@@ -58,6 +61,7 @@ function Populate({
                 </main>
                 <footer>
                     <button onClick={addGame}>Add</button>
+                    {/* <AddButton /> */}
                     <button>Wishlist</button>
                     <button>Reviews</button>
                 </footer>
