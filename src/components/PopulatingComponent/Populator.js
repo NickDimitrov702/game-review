@@ -26,15 +26,23 @@ function Populate({
 
         console.log('populate', e.target, data, e.target.offsetParent, targetTemplateData, gameName, osName)
 
+       let games = []
+
         gameDetails = {
             name: gameName.innerText,
             os: osName.innerText
         }
+
+        games.push(gameDetails)
+
+        const gameRef = collection(db,`${currentUser.email}`,)
         
-        addDoc(collection(db, `${currentUser.email}`), {
+        setDoc(doc(gameRef,'gameTemplate' ), {
             name: gameDetails.name,
             os: gameDetails.os,
-            country: 'US'
+            country: 'US',
+            id: id,
+
         });
 
 
