@@ -37,7 +37,7 @@ function Populate({
 
         const gameRef = collection(db,`${currentUser.email}`,)
         
-        setDoc(doc(gameRef,'gameTemplate' ), {
+        setDoc(doc(gameRef,`${id}` ), {
             name: gameDetails.name,
             os: gameDetails.os,
             country: 'US',

@@ -9,7 +9,7 @@ function UserDashboard({
     id
 }) {
 
-    
+
     const [userGameData, setGameData] = useState([])
 
     const { login, currentUser } = useAuth()
@@ -36,7 +36,7 @@ function UserDashboard({
 
             // })
 
-          
+
 
         } catch {
 
@@ -82,11 +82,13 @@ function UserDashboard({
                     </div>
                 </div>
             </aside>
-            <div>
+            <div className={style.gridWrapper}>
                 {userGameData.map(x =>
                     <UserGamesTemplate key={x.id} name={x.data.name} {...x.data} />
                 )}
             </div>
+
+
 
 
 
