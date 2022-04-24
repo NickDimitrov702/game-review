@@ -1,36 +1,39 @@
 import { doc, collection, setDoc, addDoc } from "firebase/firestore";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fragment } from 'react'
 import style from './Populate.module.css'
 import { db } from '../services/firebase/firebase.js'
 import { useAuth } from "../../context/AuthContext";
 import AddButton from "../Button/Button";
+import Platfrom from "../platform/Platfrom";
 
 function Populate({
     name,
     id,
     slug,
     image,
-    os
+    os,
+    platform
+    
 }) {
-
+    const [platformName,SetPlaftormName] = useState([])
     const { currentUser } = useAuth()
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
     const addGame = (e, data) => {
 
-        let targetTemplateData = e.target.parentElement.parentElement.children[1]
-        let gameName = targetTemplateData.children[1]
-        let osName = targetTemplateData.children[2]
+        let targetTemplateData = e.target.parentElement.parentElement.children[2]
+        let gameName = targetTemplateData.children[1].children[0]
+        // let osName = targetTemplateData.children[2]
         let gameDetails = {}
 
-        console.log('populate', e.target, data, e.target.offsetParent, targetTemplateData, gameName, osName)
+        console.log('populate', e.target, data, e.target.offsetParent,targetTemplateData, gameName.innerText,id)
 
        let games = []
 
         gameDetails = {
             name: gameName.innerText,
-            os: osName.innerText
+            
         }
 
         games.push(gameDetails)
@@ -39,22 +42,25 @@ function Populate({
         
         setDoc(doc(gameRef,`${id}` ), {
             name: gameDetails.name,
-            os: gameDetails.os,
             country: 'US',
             id: id,
 
         });
 
 
-        return console.log(gameDetails)
+        
     }
 
+    useEffect(() => {
+        SetPlaftormName(platform)
+    },[])
 
+    console.log(platformName.map(x => console.log(x.platform)))
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
             <div className={style.gameTempalteWrapper} >
-                {/* <img className={style.img} src={image}/> */}
+                <img className={style.img} src={image}/>
                 <header>
                     <h1>Game image Slide show</h1>
                 </header>
@@ -73,8 +79,9 @@ function Populate({
                     <button>Wishlist</button>
                     <button>Reviews</button>
                 </footer>
-                <header>
-                    <p>Icon for OS</p>
+                <header className={style.platformWrapper}>
+                    {platformName.map(x => 
+                        <Platfrom key={x.platform.id} name={x.platform.name}/>)}
                 </header>
             </div>
         </div>

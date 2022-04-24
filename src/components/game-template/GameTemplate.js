@@ -10,24 +10,28 @@ function GameTempalte({
     name,
     games,
     image_background,
+    platform
 }) {
 
     let [gamesData, setGames] = useState([])
 
-    useEffect(() => {
-        games.map(x => {
-            setGames(x)
-        })
+    // useEffect(() => {
+    //     games.map(x => {
+    //         setGames(x)
+    //     })
 
 
-    }, [games])
+    // }, [games])
+    console.log(id)
 
     return (
         <div className={style.gameTemplateComponentWrapper}>
             
-            {id === 4 && <div>
+            <Populate key={id} name={name} id={id} platform={platform} />
+
+            {/* {id === 4 && <div>
                 {games.map(x =>
-                    <Populate id={x.id} name={x.name} {...x} os={name} />)
+                    <Populate id={x.id} name={x.name} image={image_background} {...x} os={name} />)
                 }
             </div>} 
             {id === 187 && <div>
@@ -65,7 +69,7 @@ function GameTempalte({
                 {games.map(x =>
                    <Populate id={x.id} name={x.name} {...x} os={name} />)
                 }
-            </div>}
+            </div>} */}
         </div>
 
 

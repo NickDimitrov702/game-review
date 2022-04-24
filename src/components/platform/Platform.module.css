@@ -1,0 +1,16 @@
+
+.platformWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 130px;
+    margin: auto;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+}
+
+.platformWrapper p {
+  width: 100%;
+  margin: 5px;
+ 
+}
