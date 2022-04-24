@@ -34,11 +34,11 @@ function Homepage() {
     }, [])
 
 
-    console.log(data.map(x => console.log(x.platforms.map(x => console.log(x.platform.name)))))
+    console.log(data)
     return (
         <div className={style.homePageWrapper}>
             {data.map(x =>
-                <GameTemplate key={x.id} name={x.name} id={x.id} platform={x.platforms} />)
+                <GameTemplate key={x.id} name={x.name} id={x.id} platform={x.platforms} screenshots={x.short_screenshots} />)
             }
             {/* <h2>HOme page </h2> */}
             <p></p>

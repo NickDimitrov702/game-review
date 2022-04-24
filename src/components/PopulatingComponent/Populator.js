@@ -6,17 +6,18 @@ import { db } from '../services/firebase/firebase.js'
 import { useAuth } from "../../context/AuthContext";
 import AddButton from "../Button/Button";
 import Platfrom from "../platform/Platfrom";
+import Screenshots from "../screenshots/Screenshots";
 
 function Populate({
     name,
     id,
     slug,
-    image,
+    screenshots,
     os,
     platform
-    
+
 }) {
-    const [platformName,SetPlaftormName] = useState([])
+    const [platformName, SetPlaftormName] = useState([])
     const { currentUser } = useAuth()
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
@@ -27,20 +28,20 @@ function Populate({
         // let osName = targetTemplateData.children[2]
         let gameDetails = {}
 
-        console.log('populate', e.target, data, e.target.offsetParent,targetTemplateData, gameName.innerText,id)
+        console.log('populate', e.target, data, e.target.offsetParent, targetTemplateData, gameName.innerText, id)
 
-       let games = []
+        let games = []
 
         gameDetails = {
             name: gameName.innerText,
-            
+
         }
 
         games.push(gameDetails)
 
-        const gameRef = collection(db,`${currentUser.email}`,)
-        
-        setDoc(doc(gameRef,`${id}` ), {
+        const gameRef = collection(db, `${currentUser.email}`,)
+
+        setDoc(doc(gameRef, `${id}`), {
             name: gameDetails.name,
             country: 'US',
             id: id,
@@ -48,21 +49,20 @@ function Populate({
         });
 
 
-        
+
     }
 
     useEffect(() => {
         SetPlaftormName(platform)
-    },[])
+    }, [])
 
-    console.log(platformName.map(x => console.log(x.platform)))
+    console.log(screenshots.map(x => console.log(x.image)))
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
             <div className={style.gameTempalteWrapper} >
-                <img className={style.img} src={image}/>
-                <header>
-                    <h1>Game image Slide show</h1>
+                <header className={style.imageSlideShowWrapper}>
+                    {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
                 </header>
                 <main >
                     <p>Main Content for the game </p>
@@ -80,8 +80,8 @@ function Populate({
                     <button>Reviews</button>
                 </footer>
                 <header className={style.platformWrapper}>
-                    {platformName.map(x => 
-                        <Platfrom key={x.platform.id} name={x.platform.name}/>)}
+                    {platformName.map(x =>
+                        <Platfrom key={x.platform.id} name={x.platform.name} />)}
                 </header>
             </div>
         </div>

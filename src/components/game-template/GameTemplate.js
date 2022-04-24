@@ -9,7 +9,7 @@ function GameTempalte({
     id,
     name,
     games,
-    image_background,
+    screenshots,
     platform
 }) {
 
@@ -27,7 +27,7 @@ function GameTempalte({
     return (
         <div className={style.gameTemplateComponentWrapper}>
             
-            <Populate key={id} name={name} id={id} platform={platform} />
+            <Populate key={id} name={name} id={id} platform={platform} screenshots={screenshots} />
 
             {/* {id === 4 && <div>
                 {games.map(x =>

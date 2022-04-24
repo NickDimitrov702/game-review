@@ -1,0 +1,12 @@
+
+.screenshotsWrapper {
+    max-width: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.imageStyle {
+    width:400px;
+    height: 200px;
+}
