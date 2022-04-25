@@ -20,7 +20,7 @@ function Populate({
 
 }) {
     const [platformName, SetPlaftormName] = useState([])
-    const [detailsState,SetDetailsState] = useState(true)
+    const [detailsState, SetDetailsState] = useState(true)
     const { currentUser } = useAuth()
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
@@ -59,14 +59,14 @@ function Populate({
         e.preventDefault()
         let platformsDetailsElement = e.target.parentElement.parentElement.children[4]
         console.log(platformsDetailsElement)
-        if(detailsState === true) {
+        if (detailsState === true) {
             platformsDetailsElement.style = 'height:345px; transition: 1s'
             SetDetailsState(false)
-        } else if(detailsState === false) {
+        } else if (detailsState === false) {
             platformsDetailsElement.style = 'height:104px; transition: 1s'
             SetDetailsState(true)
         }
-        
+
     }
 
     useEffect(() => {

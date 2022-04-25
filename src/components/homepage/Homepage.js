@@ -12,11 +12,11 @@ function Homepage() {
     const [data, setData] = useState([])
     const apiKey = '0bb3c776352a48b9a0a4fb7ad3821b6c'
     const urlImages = `https://rawg.io/api/games?key=${apiKey}`
-    // `https://api.rawg.io/api/platforms?key=${apiKey}`
+  
 
-     function getImages() {
+     async function getImages() {
 
-        return fetch(urlImages)
+        return await fetch(urlImages)
         .then(res => res.json()
         .then(data => console.log(data.results.map(x => console.log(x)))))
     }
