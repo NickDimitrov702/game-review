@@ -1,6 +1,6 @@
 
 .screenshotsWrapper {
-    max-width: 200px;
+    max-width: 100%;
     margin: auto;
     display: flex;
     flex-direction: row;

@@ -7,6 +7,8 @@ import { useAuth } from "../../context/AuthContext";
 import AddButton from "../Button/Button";
 import Platfrom from "../platform/Platfrom";
 import Screenshots from "../screenshots/Screenshots";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 function Populate({
     name,
@@ -18,6 +20,7 @@ function Populate({
 
 }) {
     const [platformName, SetPlaftormName] = useState([])
+    const [detailsState,SetDetailsState] = useState(true)
     const { currentUser } = useAuth()
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
@@ -52,32 +55,46 @@ function Populate({
 
     }
 
+    function seeMoreInfo(e) {
+        e.preventDefault()
+        let platformsDetailsElement = e.target.parentElement.parentElement.children[4]
+        console.log(platformsDetailsElement)
+        if(detailsState === true) {
+            platformsDetailsElement.style = 'height:345px; transition: 1s'
+            SetDetailsState(false)
+        } else if(detailsState === false) {
+            platformsDetailsElement.style = 'height:104px; transition: 1s'
+            SetDetailsState(true)
+        }
+        
+    }
+
     useEffect(() => {
         SetPlaftormName(platform)
     }, [])
 
-    console.log(screenshots.map(x => console.log(x.image)))
+    console.log(screenshots.map(x => console.log(x)))
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
             <div className={style.gameTempalteWrapper} >
+                <div className='gameName' id={style.gameName}>
+                    <p>{name}</p>
+                </div>
                 <header className={style.imageSlideShowWrapper}>
-                    {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
+                    <Carousel>
+                        {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
+                    </Carousel>
                 </header>
                 <main >
-                    <p>Main Content for the game </p>
-                    <div className='gameName'>
-                        <p>{name}</p>
-                    </div>
                     <div>
                         <p className="osName">{os}</p>
                     </div>
                 </main>
-                <footer>
-                    <button onClick={addGame}>Add</button>
-                    {/* <AddButton /> */}
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
+                <footer className={style.footreWrapper}>
+                    <button className={style.button} onClick={addGame}>Add</button>
+                    <button className={style.button} onClick={seeMoreInfo}>See more</button>
+                    <button className={style.button}>Reviews</button>
                 </footer>
                 <header className={style.platformWrapper}>
                     {platformName.map(x =>
