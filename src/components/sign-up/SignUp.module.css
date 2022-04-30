@@ -1,21 +1,26 @@
-
 .formWrapper {
-    min-height: 100%;
+        height: 100vh;
+     margin: auto;
+     position: relative;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .signUpFormWrapper {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 345px;
+    max-width: 500px;
     margin: auto;
     align-items: center;
-    margin-top: 55px;
+    margin-top: 65px;
     margin-bottom: 55px;
     padding: 20px;
     border: 2px solid black;
     border-radius: 25px;
     background-color: aquamarine;
+    background-color: rgba(255, 255, 255, 0.471);
+    position: absolute;
+    left:35%;
+    right: 35%;
 }
 
 .emailInputWrapper {
@@ -42,7 +47,7 @@
 .input {
     text-decoration: none;
     border: none;
-    background-color: grey;
+    background-color: rgb(241, 236, 236);
     height: 35px;
     border-radius: 12px;
 }
@@ -58,25 +63,39 @@
     border-radius: 12px;
     border: none;
     background-color: grey;
+    transition: 0.5s;
+    border:1px solid transparent;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
 }
 
 .submitBtn:hover {
     cursor: pointer;
-    color: red;
+    color: rgb(229, 225, 225);
 }
 
-.submitBtn:active  {
+.submitBtn:active {
     background-color: rgb(133, 55, 55);
 }
 
+.spanLink {
+    margin: 15px;
+}
+
 .spanLink a {
-    font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
-    color: black;
-    font-weight:600;
+    font-size: 16px;
+    color: white;
 }
 
 .spanLink a:active {
     color: red;
 }
 
+.imageStyle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.1;
+}

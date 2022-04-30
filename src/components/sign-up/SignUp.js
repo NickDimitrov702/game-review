@@ -1,5 +1,5 @@
 import style from './SignUp.module.css'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '../../context/AuthContext.js'
 import Transitions from '../Transition/Transition'
@@ -14,6 +14,24 @@ function SignUp() {
     const [loading, setLoading] = useState(false)
     const history = useNavigate()
     // Async function since we have try catch, that is using async event within the Singup
+
+    const apiKey = '0bb3c776352a48b9a0a4fb7ad3821b6c'
+    let imageUrl = `https://api.rawg.io/api/platforms?key=${apiKey}`
+
+    const [image, setImage] = useState([]);
+
+    async function backgImageProvider() {
+
+        await fetch(imageUrl)
+            .then(res => res.json())
+            .then(res => setImage(res.results[0].image_background))
+    }
+
+    useEffect(() => {
+
+        backgImageProvider()
+
+    }, [image])
     async function handleSubmit(e) {
         e.preventDefault()
 
@@ -41,6 +59,7 @@ function SignUp() {
         <Transitions>
 
             <div className={style.formWrapper}>
+                <img className={style.imageStyle} src={image} />
                 <form className={style.signUpFormWrapper} onSubmit={handleSubmit}>
                     <div className={style.emailInputWrapper}>
                         <label className={style.label}>Enter email

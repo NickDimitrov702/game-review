@@ -16,12 +16,12 @@ function About() {
             .then(res => res.json())
             .then(res => setImage(res.results[0].image_background))
     }
-    console.log(image)
+
     useEffect(() => {
 
         backgImageProvider()
 
-    }, [])
+    }, [image])
 
 
 
