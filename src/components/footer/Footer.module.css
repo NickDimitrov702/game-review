@@ -1,6 +1,43 @@
 
 .footerWrapepr {
+    display: flex;
     background-color: rgb(59, 60, 61);
-    height: 100px;
+    height: 200px;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+}
+
+.listItemsWrapper {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: auto;
+    padding: 0px;
+}
+
+.listItems {
+    list-style-type: none;
+    margin: 35px 105px 35px 105px;
+    font-size: 25px;
+    border-bottom: 3px solid transparent;
+    border-radius: 30px;
+    
+}
+
+.listItems a {
+    text-decoration: none;
+    color:wheat;
+    transition: 1s;
+    padding: 5px;
+}
+
+
+.listItems a:hover {
+    transition: 1s;
+    border-bottom: 3px solid black;
+    box-shadow: 0px 5px 12px 4px rgba(128, 128, 128, 0.862);
+    border-radius: 30px;
 }

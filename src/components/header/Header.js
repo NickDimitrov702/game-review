@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useNavigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from "../../context/AuthContext"
 
 import style from './Header.module.css'
@@ -11,10 +11,10 @@ import style from './Header.module.css'
 function Header() {
     const [error, setError] = useState("")
     const { currentUser, logout } = useAuth()
-    const { history } = useHistory()
+    const { history } = useNavigate()
 
     async function handleLogOut() {
-        
+
         setError('')
 
         try {
@@ -24,7 +24,7 @@ function Header() {
             setError('Failed to log out')
         }
     }
-    
+
     return (
 
         <div className={style.headerWrapper}>
@@ -36,7 +36,6 @@ function Header() {
                 <ul className={style.navBarWrapper}>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/'>Home</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/about'>About</Link></li>
-                    <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Dashboard</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Users Dashboard</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/log-in' onClick={handleLogOut}>Log Out</Link></li>
                 </ul>

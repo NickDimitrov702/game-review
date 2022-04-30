@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header.js';
 import Homepage from './components/homepage/Homepage.js';
 import Footer from './components/footer/Footer.js';
@@ -11,22 +11,29 @@ import PrivateRout from './components/privateRout/PrivateRout';
 import Dashboard from './components/Dashboard/Dashboard';
 import PublicRout from './components/publicRout/PublicRouter';
 import UsersDAshboard from './components/user/UserDashboard.js'
+import { AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 function App() {
 
-
-
+  // const location = useLocation()
+  // restricted={false}
   return (
     <Router>
-      <AuthProvider>
-        <Header />
-        <Switch>
-          <PublicRout restricted={false} exact path='/' component={Homepage} />
-          <PrivateRout exact path='/dashboard' component={UsersDAshboard} />
-          <Route path='/about' component={About} />
-          <Route path='/log-in' component={LogIn} />
-          <Route path='/sign-up' component={SignUp} />
-        </Switch>
-      </AuthProvider>
+      <AnimatePresence exitBeforeEnter>
+        <AuthProvider>
+          <Header />
+          <Routes >
+            <Route path='/' element={<PrivateRout />}>
+              <Route path='/dashboard' element={<UsersDAshboard />} />
+              <Route exact path='/' element={<Homepage />} />
+            </Route>
+            {/* <PrivateRout exact path='/dashboard' element={UsersDAshboard} /> */}
+            <Route path='/about' element={<About />} />
+            <Route path='/log-in' element={<LogIn />} />
+            <Route path='/sign-up' element={<SignUp />} />
+          </Routes >
+        </AuthProvider>
+      </AnimatePresence>
       <Footer />
     </Router>
 
