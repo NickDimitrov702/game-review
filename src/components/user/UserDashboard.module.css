@@ -1,7 +1,8 @@
 .UserDashboardWrapper {
     display: flex;
-    width: auto;
+    flex-wrap: nowrap;
     height: auto;
+    flex-direction: row;
 
 }
 
@@ -9,6 +10,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
+    width: 100%;
 }
 
 .aside {
@@ -17,6 +19,7 @@
     height: 500px;
     margin-left: 10px;
     margin-right: 10px;
+    background-color: grey;
 }
 
 .UserHeader {

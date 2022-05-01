@@ -2,22 +2,104 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    height: 350px;
+    background-color: #202020;
+    color: white;
+    margin: 25px auto 25px auto;
+    border-radius: 18px;
+    padding-bottom: 15px;
+    align-content: center;
+    overflow: hidden;
+    justify-content: center;
+    transition: 1.5s;
 }
 
 .gameTemplateHeader {
     width: 100%;
     border-bottom: 2px solid black;
+    height: 400px;
 }
 
-.gameTempalteWrapper  {
+
+.gameTempalteWrapper {
     display: flex;
     flex-direction: column;
-    max-width: 350px;
+    max-width: 100%;
     height: 350px;
-    padding: 20.5px;
-    margin: 25px auto 25px auto;
+    padding: 12.5px;
+    margin: 20px auto 25px auto;
     border-radius: 18px;
-    border: 3px solid gray;
+    /* border: 3px solid gray; */
     align-items: center;
-    
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#gameName {
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+    font-size: 20px;
+
+}
+
+.button {
+    border-radius: 5px;
+    padding: 2.5px;
+    width: 70px;
+    height: 25px;
+    background-color: rgba(128, 128, 128, 0.862);
+    color: wheat;
+    border: none;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: 0.5s;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgba(248, 246, 246, 0.505);
+    color: black;
+    transition: 0.5s;
+}
+
+.footreWrapper {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+
+}
+
+.platformWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 104px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.osWrapper {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 25px;
+    margin: auto;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+    align-content: center;
+}
+
+.osWrapper p {
+    width: 60px;
+    margin: 1px;
+
 }

@@ -4,6 +4,7 @@ import UserGamesTemplate from './UsersGamesTemplate.js'
 import { doc, collection, addDoc, onSnapshot, getDoc, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from '../services/firebase/firebase.js'
+import getData from '../../API-services/API-fetch/apiFetch.js';
 
 function UserDashboard({
     id
@@ -11,12 +12,12 @@ function UserDashboard({
 
 
     const [userGameData, setGameData] = useState([])
-
+  
     const { login, currentUser } = useAuth()
 
     useEffect(async () => {
 
-
+        
 
         try {
             const q = query(collection(db, `${currentUser.email}`))

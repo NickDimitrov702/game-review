@@ -22,31 +22,48 @@ function Populate({
     const [platformName, SetPlaftormName] = useState([])
     const [detailsState, SetDetailsState] = useState(true)
     const { currentUser } = useAuth()
+     let string = []
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
     const addGame = (e, data) => {
 
-        let targetTemplateData = e.target.parentElement.parentElement.children[2]
-        let gameName = targetTemplateData.children[1].children[0]
-        // let osName = targetTemplateData.children[2]
+        let targetTemplateData = e.target.parentElement.parentElement
+        let gameName = targetTemplateData.children[0]
+        let osName = targetTemplateData.children[3].innerText.split('\n').join('/ ').split('/ ')
+        let screenShots = [...targetTemplateData.children[1].children[0].children[0].children[2].children[0].children]
         let gameDetails = {}
+        let screenshotsData;
 
-        console.log('populate', e.target, data, e.target.offsetParent, targetTemplateData, gameName.innerText, id)
 
-        let games = []
+        // console.log(targetTemplateData.children[1].children[0].children[0].children[2].children[0].children)
+
+
+        console.log(screenShots)
+
+        osName.map(x => {
+            let empty = []
+           
+            if(x == '' ) {
+                empty.push(x)
+            } else {
+                string.push(x)
+            }
+            
+        })
+        
 
         gameDetails = {
             name: gameName.innerText,
-
+            os: string,
         }
-
-        games.push(gameDetails)
+       
+        
 
         const gameRef = collection(db, `${currentUser.email}`,)
 
         setDoc(doc(gameRef, `${id}`), {
             name: gameDetails.name,
-            country: 'US',
+            os: gameDetails.os,
             id: id,
 
         });
@@ -57,8 +74,8 @@ function Populate({
 
     function seeMoreInfo(e) {
         e.preventDefault()
-        let platformsDetailsElement = e.target.parentElement.parentElement.children[4]
-        console.log(platformsDetailsElement)
+        let platformsDetailsElement = e.target.parentElement.parentElement.children[3]
+
         if (detailsState === true) {
             platformsDetailsElement.style = 'height:345px; transition: 1s'
             SetDetailsState(false)
@@ -73,8 +90,6 @@ function Populate({
         SetPlaftormName(platform)
     }, [])
 
-    console.log(screenshots.map(x => console.log(x)))
-
     return (
         <div className={style.gameTemplateComponentWrapper} >
             <div className={style.gameTempalteWrapper} >
@@ -82,15 +97,10 @@ function Populate({
                     <p>{name}</p>
                 </div>
                 <header className={style.imageSlideShowWrapper}>
-                    <Carousel>
+                    <Carousel showThumbs={false}>
                         {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
                     </Carousel>
                 </header>
-                <main >
-                    <div>
-                        <p className="osName">{os}</p>
-                    </div>
-                </main>
                 <footer className={style.footreWrapper}>
                     <button className={style.button} onClick={addGame}>Add</button>
                     <button className={style.button} onClick={seeMoreInfo}>See more</button>

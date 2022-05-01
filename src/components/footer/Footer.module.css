@@ -1,7 +1,7 @@
 
 .footerWrapepr {
     display: flex;
-    background-color: rgb(59, 60, 61);
+    background-color: rgba(59, 60, 61, 0.923);
     height: 200px;
     text-align: center;
     align-items: center;
@@ -19,11 +19,14 @@
 }
 
 .listItems {
+    display: flex;
     list-style-type: none;
     margin: 35px 105px 35px 105px;
     font-size: 25px;
     border-bottom: 3px solid transparent;
     border-radius: 30px;
+    max-width: 150px;
+  
     
 }
 
@@ -31,7 +34,9 @@
     text-decoration: none;
     color:wheat;
     transition: 1s;
-    padding: 5px;
+    padding: 1px 25px 1px 25px; 
+    align-items: center;
+    
 }
 
 

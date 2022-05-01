@@ -22,7 +22,7 @@ function GameTempalte({
 
 
     // }, [games])
-    console.log(id)
+    // console.log(id)
 
     return (
         <div className={style.gameTemplateComponentWrapper}>

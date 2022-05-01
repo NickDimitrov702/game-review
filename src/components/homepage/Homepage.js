@@ -14,16 +14,12 @@ function Homepage() {
     const urlImages = `https://rawg.io/api/games?key=${apiKey}`
 
 
-    async function getImages() {
+    // async function getImages() {
 
-        return await fetch(urlImages)
-            .then(res => res.json()
-                .then(data => console.log(data.results.map(x => console.log(x)))))
-    }
-
-
-
-
+    //     return await fetch(urlImages)
+    //         .then(res => res.json()
+    //             .then(data => console.log(data.results.map(x => console.log(x)))))
+    // }
 
     useEffect(() => {
 

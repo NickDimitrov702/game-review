@@ -1,76 +1,90 @@
-import { doc, collection, addDoc, onSnapshot, getDoc } from "firebase/firestore";
+import { doc, collection, addDoc, onSnapshot, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../services/firebase/firebase.js'
 import style from './UserGamesTemplate.module.css'
 import { useAuth } from '../../context/AuthContext.js'
 import { useEffect, useState } from "react";
+import getData from '../../API-services/API-fetch/apiFetch.js';
 
 function UserGamesTemplate({
     name,
     os,
-    country
+    country,
+    id
 
 }) {
-    // try {
-    //     const docRef = addDoc(collection(db, "users"), {
-    //         first: "Ada",
-    //         last: "Lovelace",
-    //         born: 1815
-    //     });
-    //     console.log("Document written with ID: ", docRef.id);
-    // } catch (e) {
-    //     console.error("Error adding document: ", e);
-    // }
 
-    // const { currentUser } = useAuth()
-    // const [userGameData, setGameData] = useState([])
+    const apiKey = '0bb3c776352a48b9a0a4fb7ad3821b6c'
+    const urlImages = `https://rawg.io/api/games?key=${apiKey}`
 
+    const [detailsState, SetDetailsState] = useState(true)
+    const [platforms, setPlatforms] = useState([])
+    const [setScreenShots,setScreeshots] = useState([])
+    const [data, setData] = useState([])
+    const { currentUser } = useAuth()
+    
 
+    function seeMoreInfo(e) {
+        e.preventDefault()
+        let platformsDetailsElement = e.target.parentElement.parentElement.children[3]
+        // console.log(platformsDetailsElement)
+        if (detailsState === true) {
+            platformsDetailsElement.style = 'height:345px; transition: 1s'
+            SetDetailsState(false)
+        } else if (detailsState === false) {
+            platformsDetailsElement.style = 'height:104px; transition: 1s'
+            SetDetailsState(true)
+        }
 
-    // useEffect(() => {
-    //     getDoc(doc(db, `${currentUser.email}`, 'gameTemplate')).then(docSnap => {
-    //         if (docSnap.exists()) {
-    //             console.log("Document data:", docSnap.data());
-    //             setGameData(docSnap.data())
-    //         } else {
-    //             console.log("No such document!");
-    //         }
-    //     })
-    //     // const docSnap = getDoc(docRef);
+        console.log(platformsDetailsElement)
+    }
 
+    async function deleteGame(e) {
+        e.preventDefault()
+        try {
 
-    // }, [])
+            await deleteDoc(doc(db, `${currentUser.email}`, `${id}`));
 
-    // console.log(userGameData)
+        } catch {
+            console.error('COULD NOT DELETE GAME')
+        }
+    }
 
+    useEffect(() => {
+        getData()
+        .then(res => res.map)
+        .catch(error => console.log(error))
+        setPlatforms(os)
 
-
+    }, [platforms])
+    
+console.log(data)
     return (
         <div className={style.gameTemplateComponentWrapper} >
-
             <div className={style.gameTempalteWrapper} >
-                {/* <img className={style.img} src={image}/> */}
-                <header>
-                    <h1>Game image Slide show</h1>
+                <div className='gameName' id={style.gameName}>
+                    <p>{name}</p>
+                </div>
+                <header className={style.imageSlideShowWrapper}>
+                    {/* <Carousel showThumbs={false}>
+                        {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
+                    </Carousel> */}
                 </header>
-                <main >
-                    <p>Main Content for the game </p>
-                    <div>
-                        {name}
-                    </div>
-                    <div>
-                        {os}
-                    </div>
-                </main>
-                <footer>
-                    <button>Add</button>
-                    <button>Wishlist</button>
-                    <button>Reviews</button>
+                <footer className={style.footreWrapper}>
+                    <button className={style.button} onClick={deleteGame} >Delete</button>
+                    <button className={style.button} onClick={seeMoreInfo}>See more</button>
+                    <button className={style.button}>Reviews</button>
                 </footer>
-                <header>
-                    <p>Icon for OS</p>
+                <header className={style.platformWrapper}>
+                    {platforms.map(x => <>
+                        <div className={style.osWrapper}>
+                            <p>{x}</p>
+                        </div>
+                    </>)}
                 </header>
             </div>
         </div>
+
+
 
 
     )
