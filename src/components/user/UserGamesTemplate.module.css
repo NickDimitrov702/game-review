@@ -1,16 +1,13 @@
 .gameTemplateComponentWrapper {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
     display: flex;
     flex-direction: column;
     max-width: 350px;
-    height: 350px;
+    height: 360px;
     background-color: #202020;
     color: white;
     margin: 25px auto 25px auto;
     border-radius: 18px;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     align-content: center;
     overflow: hidden;
     justify-content: center;
@@ -22,20 +19,21 @@
     border-bottom: 2px solid black;
     height: 400px;
 }
-
+.gameTemplateComponentWrapper:hover {
+    transition: 0.5s;
+    -webkit-box-shadow: 0px 5px 12px 4px rgba(128, 128, 128, 0.862); 
+    box-shadow: 0px 5px 12px 4px rgba(128, 128, 128, 0.862);
+}
 
 .gameTempalteWrapper {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    height: 350px;
-    padding: 12.5px;
-    margin: 20px auto 25px auto;
+    height: 100%;
     border-radius: 18px;
-    /* border: 3px solid gray; */
     align-items: center;
     justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 1s;
 }
 
 #gameName {
@@ -83,7 +81,7 @@
     height: 104px;
     flex-wrap: wrap;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 1px;
 }
 
 .osWrapper {
@@ -102,4 +100,13 @@
     width: 60px;
     margin: 1px;
 
+}
+
+.imageSlideShowWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 350px;
+    height: 100%;
+    overflow: hidden;
 }

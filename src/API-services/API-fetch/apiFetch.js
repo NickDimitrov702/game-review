@@ -9,8 +9,10 @@ export default function getData(){
         .then(res => res.json())
         .then(res => res.results)
         
-
+    
 }
+
+
 
 
 

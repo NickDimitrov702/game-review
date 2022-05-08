@@ -4,12 +4,14 @@ import style from './UserGamesTemplate.module.css'
 import { useAuth } from '../../context/AuthContext.js'
 import { useEffect, useState } from "react";
 import getData from '../../API-services/API-fetch/apiFetch.js';
-
+import Screenshots from "../screenshots/Screenshots.js";
+import { Carousel } from "react-responsive-carousel";
 function UserGamesTemplate({
     name,
     os,
     country,
-    id
+    id,
+    img
 
 }) {
 
@@ -41,7 +43,6 @@ function UserGamesTemplate({
     async function deleteGame(e) {
         e.preventDefault()
         try {
-
             await deleteDoc(doc(db, `${currentUser.email}`, `${id}`));
 
         } catch {
@@ -54,10 +55,11 @@ function UserGamesTemplate({
         .then(res => res.map)
         .catch(error => console.log(error))
         setPlatforms(os)
+        setScreeshots(img)
 
     }, [platforms])
     
-console.log(data)
+console.log(setScreenShots)
     return (
         <div className={style.gameTemplateComponentWrapper} >
             <div className={style.gameTempalteWrapper} >
@@ -65,9 +67,9 @@ console.log(data)
                     <p>{name}</p>
                 </div>
                 <header className={style.imageSlideShowWrapper}>
-                    {/* <Carousel showThumbs={false}>
-                        {screenshots.map(x => <Screenshots key={x.id} image={x.image} />)}
-                    </Carousel> */}
+                <Carousel showThumbs={false}>
+                        {setScreenShots.map(x => <Screenshots key={x} image={x} />)}
+                    </Carousel>
                 </header>
                 <footer className={style.footreWrapper}>
                     <button className={style.button} onClick={deleteGame} >Delete</button>

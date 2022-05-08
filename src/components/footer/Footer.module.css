@@ -2,30 +2,34 @@
 .footerWrapepr {
     display: flex;
     background-color: rgba(59, 60, 61, 0.923);
-    height: 200px;
+    height: 100px;
     text-align: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
     margin: auto;
+    
 }
 
 .listItemsWrapper {
     display: flex;
     align-items: center;
-    max-width: 100%;
+    width: auto;
+    height: 100%;
     margin: auto;
     padding: 0px;
+    
 }
 
 .listItems {
     display: flex;
     list-style-type: none;
-    margin: 35px 105px 35px 105px;
+    /* margin: 35px 105px 35px 105px; */
     font-size: 25px;
     border-bottom: 3px solid transparent;
     border-radius: 30px;
     max-width: 150px;
+    
   
     
 }
@@ -36,7 +40,6 @@
     transition: 1s;
     padding: 1px 25px 1px 25px; 
     align-items: center;
-    
 }
 
 

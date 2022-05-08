@@ -1,9 +1,9 @@
 .UserDashboardWrapper {
     display: flex;
     flex-wrap: nowrap;
-    height: auto;
+    height: 100%;
     flex-direction: row;
-
+   min-height: 100%;
 }
 
 .gridWrapper {

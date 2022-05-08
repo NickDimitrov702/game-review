@@ -5,6 +5,8 @@ import { doc, collection, addDoc, onSnapshot, getDoc, getDocs, query, where } fr
 import { useEffect, useState } from "react";
 import { db } from '../services/firebase/firebase.js'
 import getData from '../../API-services/API-fetch/apiFetch.js';
+import GameTempalte from '../game-template/GameTemplate.js';
+import Populate from '../PopulatingComponent/Populator.js';
 
 function UserDashboard({
     id
@@ -66,7 +68,6 @@ function UserDashboard({
 
     return (
         <div className={style.UserDashboardWrapper}>
-
             <aside className={style.aside}>
                 <header className={style.UserHeader}>
                     <p>User Icon</p>
@@ -87,6 +88,7 @@ function UserDashboard({
                 {userGameData.map(x =>
                     <UserGamesTemplate key={x.id} name={x.data.name} {...x.data} />
                 )}
+               
             </div>
 
 

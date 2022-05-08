@@ -1,4 +1,4 @@
-import { doc, collection, setDoc, addDoc } from "firebase/firestore";
+import { doc, collection, setDoc, addDoc, arrayUnion } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Fragment } from 'react'
 import style from './Populate.module.css'
@@ -9,6 +9,8 @@ import Platfrom from "../platform/Platfrom";
 import Screenshots from "../screenshots/Screenshots";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { Notifications } from 'react-push-notification'
+import addNotification from 'react-push-notification';
 
 function Populate({
     name,
@@ -21,54 +23,62 @@ function Populate({
 }) {
     const [platformName, SetPlaftormName] = useState([])
     const [detailsState, SetDetailsState] = useState(true)
+    const [screenShots,setScreenshots] = useState([])
     const { currentUser } = useAuth()
-     let string = []
+    let string = []
+
+  
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
     const addGame = (e, data) => {
-
+        e.preventDefault()
         let targetTemplateData = e.target.parentElement.parentElement
         let gameName = targetTemplateData.children[0]
         let osName = targetTemplateData.children[3].innerText.split('\n').join('/ ').split('/ ')
         let screenShots = [...targetTemplateData.children[1].children[0].children[0].children[2].children[0].children]
         let gameDetails = {}
+        let image = e.target.parentElement.parentElement.querySelector('header').querySelector('.slider-wrapper').querySelector('ul').querySelectorAll('li img')
+        let imageArray = Array.from(image)
+        let imagesToPass = []
+        imageArray.map(x => {return imagesToPass.push(x.currentSrc)})
         let screenshotsData;
 
 
+        
+        console.log(imagesToPass)
         // console.log(targetTemplateData.children[1].children[0].children[0].children[2].children[0].children)
-
-
-        console.log(screenShots)
 
         osName.map(x => {
             let empty = []
-           
-            if(x == '' ) {
+
+            if (x === '') {
                 empty.push(x)
             } else {
                 string.push(x)
             }
-            
+
         })
-        
+
 
         gameDetails = {
             name: gameName.innerText,
             os: string,
+            img:imagesToPass
         }
-       
-        
+
+
 
         const gameRef = collection(db, `${currentUser.email}`,)
 
         setDoc(doc(gameRef, `${id}`), {
             name: gameDetails.name,
-            os: gameDetails.os,
+            os: arrayUnion(...gameDetails.os),
             id: id,
+            img:arrayUnion(...gameDetails.img)
 
-        });
+        }, { os: true }, { merge: false });
 
-
+       
 
     }
 
@@ -88,6 +98,7 @@ function Populate({
 
     useEffect(() => {
         SetPlaftormName(platform)
+        
     }, [])
 
     return (
@@ -110,7 +121,9 @@ function Populate({
                     {platformName.map(x =>
                         <Platfrom key={x.platform.id} name={x.platform.name} />)}
                 </header>
+
             </div>
+
         </div>
 
 

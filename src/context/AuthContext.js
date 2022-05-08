@@ -9,12 +9,12 @@ export function useAuth() {
 }
 
 
-
 // Using the authProvider so we can render the Context
 export function AuthProvider({ children }) {
     // Using state to set the current user, by default there wont be any user
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
+    
     // This is the function that will sign-up the user, using firebase auth methods.
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
@@ -29,13 +29,17 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
+    
+    
     useEffect(() => {
         // onAuthStChange returns a unsubscribe method that will automatically unsubscribe from the listener, that is why it 
         // is set a const unsubscribe. 
+     
         const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
             setLoading(false)
         })
+
 
         return unsubscribe
     }, [])

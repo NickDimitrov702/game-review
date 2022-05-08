@@ -37,7 +37,7 @@ function Homepage() {
                 {data.map(x =>
                     <GameTemplate key={x.id} name={x.name} id={x.id} platform={x.platforms} screenshots={x.short_screenshots} />)
                 }
-                {/* <h2>HOme page </h2> */}
+               
                 <p></p>
             </div>
          </Transitions>
