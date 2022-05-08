@@ -34,10 +34,21 @@ function SignUp() {
     }, [image])
     async function handleSubmit(e) {
         e.preventDefault()
-
+        console.log(emailRef.current.value)
         // Validations for passwrods
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('Passwords do not match')
+            setError('Passwords do not match')
+            throw alert(error)
+        }
+
+        if(emailRef.current.value === ''){
+            setError('Email field is empty')
+            throw alert(error)
+        }
+
+        if(passwordRef.current.value === '' || passwordConfirmRef.current.value === ''){
+            setError('Password field is empty')
+            throw alert(error)
         }
 
         try {
@@ -45,10 +56,10 @@ function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            history.push('/dashboard')
+            history('/')
             // NOTE: In firebase password needs to be 6 or more charecters, e-mail needs to be with proper format.
         } catch {
-            setError('Failed to create an account')
+            console.error(error)
         }
 
         setLoading(false)

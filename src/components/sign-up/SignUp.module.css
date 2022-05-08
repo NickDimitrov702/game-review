@@ -47,9 +47,10 @@
 .input {
     text-decoration: none;
     border: none;
-    background-color: rgb(241, 236, 236);
+    background-color: rgba(241, 236, 236, 0.968);
     height: 35px;
     border-radius: 12px;
+    opacity: 0.5;
 }
 
 .submitBtn {
@@ -88,11 +89,15 @@
 .spanLink a {
     text-decoration: none;
     font-size: 16px;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .spanLink a:active {
     color: red;
+}
+
+.spanLink a:hover {
+    color: black;
 }
 
 .imageStyle {

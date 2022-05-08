@@ -46,9 +46,10 @@
 .input {
     text-decoration: none;
     border: none;
-    background-color: rgb(253, 249, 249);
+    background-color: rgba(253, 249, 249, 0.949);
     height: 35px;
     border-radius: 12px;
+    opacity: 0.5;
 }
 
 .submitBtn {
