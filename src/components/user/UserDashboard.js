@@ -7,6 +7,7 @@ import { db } from '../services/firebase/firebase.js'
 import getData from '../../API-services/API-fetch/apiFetch.js';
 import GameTempalte from '../game-template/GameTemplate.js';
 import Populate from '../PopulatingComponent/Populator.js';
+import Avatar from '../user/UserAvatar/UserAvatar.js'
 
 function UserDashboard({
     id
@@ -70,8 +71,8 @@ function UserDashboard({
         <div className={style.UserDashboardWrapper}>
             <aside className={style.aside}>
                 <header className={style.UserHeader}>
-                    <p>User Icon</p>
-                    <h2>{currentUser.email}</h2>
+                     <Avatar/>
+                    <h2 className={style.userName}>{currentUser.email}</h2>
                 </header>
                 <div>
                     <div>

@@ -7,7 +7,7 @@ import style from './LogIn.module.css'
 function LogIn() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login, currentUser } = useAuth()
+    const { login, currentUser } = useAuth()    
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useNavigate()
@@ -31,7 +31,7 @@ function LogIn() {
     }, [image])
 
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault() 
 
         try {
             // re-setting the Error
