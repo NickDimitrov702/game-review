@@ -23,11 +23,13 @@ function Populate({
 }) {
     const [platformName, SetPlaftormName] = useState([])
     const [detailsState, SetDetailsState] = useState(true)
-    const [screenShots,setScreenshots] = useState([])
+    const [screenShots, setScreenshots] = useState([])
+    const [buttonState,setButtonState] = useState('Add')
     const { currentUser } = useAuth()
     let string = []
+    let addBtn = 'Add';
+    let output;
 
-  
     // For add game need to create a Button component so it can be passed to all other components. 
     // Create event in button component, an event that will take the data from this.component
     const addGame = (e, data) => {
@@ -40,12 +42,12 @@ function Populate({
         let image = e.target.parentElement.parentElement.querySelector('header').querySelector('.slider-wrapper').querySelector('ul').querySelectorAll('li img')
         let imageArray = Array.from(image)
         let imagesToPass = []
-        imageArray.map(x => {return imagesToPass.push(x.currentSrc)})
+        imageArray.map(x => { return imagesToPass.push(x.currentSrc) })
         let screenshotsData;
-
-
+        let button = targetTemplateData.children[2].children[0]
+        addBtn =  button.innerText = 'Added'
         
-        console.log(imagesToPass)
+        console.log(addBtn)
         // console.log(targetTemplateData.children[1].children[0].children[0].children[2].children[0].children)
 
         osName.map(x => {
@@ -63,7 +65,7 @@ function Populate({
         gameDetails = {
             name: gameName.innerText,
             os: string,
-            img:imagesToPass
+            img: imagesToPass
         }
 
 
@@ -74,12 +76,11 @@ function Populate({
             name: gameDetails.name,
             os: arrayUnion(...gameDetails.os),
             id: id,
-            img:arrayUnion(...gameDetails.img)
+            img: arrayUnion(...gameDetails.img)
 
         }, { os: true }, { merge: false });
 
        
-
     }
 
     function seeMoreInfo(e) {
@@ -97,9 +98,9 @@ function Populate({
     }
 
     useEffect(() => {
-        SetPlaftormName(platform)
-        
-    }, [])
+        SetPlaftormName(platform);
+        setButtonState(addBtn)
+    }, [addBtn])
 
     return (
         <div className={style.gameTemplateComponentWrapper} >
@@ -113,7 +114,7 @@ function Populate({
                     </Carousel>
                 </header>
                 <footer className={style.footreWrapper}>
-                    <button className={style.button} onClick={addGame}>Add</button>
+                    <button className={style.button} onClick={addGame}>{buttonState}</button> 
                     <button className={style.button} onClick={seeMoreInfo}>See more</button>
                     <button className={style.button}>Reviews</button>
                 </footer>

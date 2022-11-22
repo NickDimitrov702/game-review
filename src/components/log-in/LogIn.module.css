@@ -105,3 +105,29 @@
 .signUpLink a:hover {
     color: black;
 }
+
+.headerHello {
+    text-align: center;
+    color: wheat;
+}
+
+.greetingsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.greetingsWrapper:hover {
+    cursor: pointer;
+    
+}
+
+.greetingsWrapper p {
+    color: aliceblue;
+    margin: 0px;
+    transition: 1101ms;
+}
+
+.headerHello:hover {
+    transition: 1101ms;
+    color: gold;
+}

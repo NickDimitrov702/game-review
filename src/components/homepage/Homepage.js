@@ -7,6 +7,7 @@ import getData from '../../API-services/API-fetch/apiFetch.js'
 import Populate from '../PopulatingComponent/Populator.js'
 import Transitions from '../Transition/Transition.js'
 
+
 function Homepage() {
     const { login, currentUser } = useAuth([])
     const [data, setData] = useState([])
@@ -32,15 +33,16 @@ function Homepage() {
 
     console.log(data)
     return (
-        <Transitions> 
+        <Transitions>
+
             <div className={style.homePageWrapper}>
                 {data.map(x =>
                     <GameTemplate key={x.id} name={x.name} id={x.id} platform={x.platforms} screenshots={x.short_screenshots} />)
                 }
-               
+
                 <p></p>
             </div>
-         </Transitions>
+        </Transitions>
 
 
     )

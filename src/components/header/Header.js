@@ -2,9 +2,9 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from "../../context/AuthContext"
-
+import loggedIn from '../log-in/LoggedIn.js'
 import style from './Header.module.css'
-
+import LoggedIn from "../log-in/LoggedIn.js"
 
 
 
@@ -31,6 +31,7 @@ function Header() {
             <span className={style.logo}><Link className={style.logo} to='/'>RAWG game-reviews</Link></span>
             <div className={style.burger}>
                 <div className={style.burgerLine}></div>
+                
             </div>
             {currentUser &&
                 <ul className={style.navBarWrapper}>
@@ -38,6 +39,8 @@ function Header() {
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/about'>About</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/dashboard'>Users Dashboard</Link></li>
                     <li className={style.navBarListItems}><Link className="main-nav-links" to='/log-in' onClick={handleLogOut}>Log Out</Link></li>
+                    <li className={style.navBarListItems}><LoggedIn /></li>
+                    
                 </ul>
             }
             {!currentUser &&
@@ -49,6 +52,7 @@ function Header() {
                     {/* <li className={style.navBarListItems}><input type="submit" onClick={handleLogOut} className="main-nav-links" value="Log out" /></li> */}
                 </ul>
             }
+            <loggedIn/>
         </div>
 
 

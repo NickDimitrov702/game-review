@@ -3,7 +3,7 @@ import { Link, useNavigate, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '../../context/AuthContext.js'
 import Transitions from '../Transition/Transition.js'
 import style from './LogIn.module.css'
-
+import loggedIn from './LoggedIn.js'
 function LogIn() {
     const emailRef = useRef()
     const passwordRef = useRef()
